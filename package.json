@@ -5,20 +5,32 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "PID=$(lsof -ti:5173); if [ -n \"$PID\" ]; then kill -9 $PID; fi; vite",
     "build": "vite build",
     "preview": "vite preview",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "homepage": "https://frank-privat.github.io/kinder-hoerspiele",
   "dependencies": {
+    "@playwright/test": "^1.55.0",
+    "framer-motion": "^12.35.2",
+    "lucide-react": "^0.577.0",
     "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react-dom": "^19.2.4",
+    "react-router": "^7.5.0",
+    "spotify-web-api-js": "^1.5.2",
+    "zustand": "^5.0.11"
   },
   "devDependencies": {
+    "@playwright/mcp": "^0.0.68",
+    "@playwright/test": "^1.58.2",
+    "@tailwindcss/vite": "^4.2.1",
     "@vitejs/plugin-react": "^5.1.4",
     "gh-pages": "^6.3.0",
+    "tailwindcss": "^4.2.1",
     "vite": "^7.3.1"
   }
 }

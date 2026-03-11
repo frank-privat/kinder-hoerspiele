@@ -2,3 +2,8 @@ node_modules/
 dist/
 .DS_Store
 *.local
+.playwright-mcp/
+test-results/
+*.png
+index-new.html
+.vscode/mcp.json
