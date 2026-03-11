@@ -3,12 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kinder-Hörspiele</title>
+    <title>🎧 Kinder-Hörspiele</title>
     <link rel="icon" type="image/svg+xml" href="/kinder-hoerspiele/favicon.svg" />
-    <script type="module" crossorigin src="/kinder-hoerspiele/assets/index-B42Dmcob.js"></script>
-    <link rel="stylesheet" crossorigin href="/kinder-hoerspiele/assets/index-DsTV61jB.css">
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script type="module" crossorigin src="/kinder-hoerspiele/assets/index-BXZA-OLC.js"></script>
+    <link rel="stylesheet" crossorigin href="/kinder-hoerspiele/assets/index-C2uXq8Km.css">
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      window.onSpotifyWebPlaybackSDKReady = () => {
+        window.spotifySDKReady = true
+        window.dispatchEvent(new Event('spotify-sdk-ready'))
+      }
+    </script>
   </body>
 </html>
