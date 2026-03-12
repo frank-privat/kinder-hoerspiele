@@ -1,0 +1,31 @@
+{
+  "name": "Audino",
+  "short_name": "Audino",
+  "description": "Kinderfreundliche Spotify-Hoerspiel-App mit Elternbereich und Zeitlimits.",
+  "start_url": "/kinder-hoerspiele/",
+  "scope": "/kinder-hoerspiele/",
+  "display": "standalone",
+  "background_color": "#fffaf5",
+  "theme_color": "#8fdccf",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/kinder-hoerspiele/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/kinder-hoerspiele/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/kinder-hoerspiele/audino_app_icon.png",
+      "sizes": "264x264",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

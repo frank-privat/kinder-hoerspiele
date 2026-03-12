@@ -3,15 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🎧 Kinder-Hörspiele</title>
-    <link rel="icon" type="image/svg+xml" href="/kinder-hoerspiele/favicon.svg" />
+    <meta name="theme-color" content="#8fdccf" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Audino" />
+    <title>Audino</title>
+    <link rel="icon" type="image/png" href="/kinder-hoerspiele/audino_app_icon.png" />
+    <link rel="apple-touch-icon" href="/kinder-hoerspiele/apple-touch-icon.png" />
+    <link rel="manifest" href="/kinder-hoerspiele/manifest.webmanifest" />
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
-    <script type="module" crossorigin src="/kinder-hoerspiele/assets/index-zaCZjNyq.js"></script>
-    <link rel="stylesheet" crossorigin href="/kinder-hoerspiele/assets/index-B9OHCkgB.css">
+    <script type="module" crossorigin src="/kinder-hoerspiele/assets/index-TWpaB8FD.js"></script>
+    <link rel="stylesheet" crossorigin href="/kinder-hoerspiele/assets/index-BL_ogCZ-.css">
   </head>
   <body>
     <div id="root"></div>
     <script>
+      ;(() => {
+        if (window.location.search.startsWith('?/')) {
+          const decodedPath = window.location.search
+            .slice(1)
+            .split('&')
+            .map((part) => part.replace(/~and~/g, '&'))
+            .join('?')
+
+          window.history.replaceState(null, '', decodedPath + window.location.hash)
+        }
+      })()
+
       window.onSpotifyWebPlaybackSDKReady = () => {
         window.spotifySDKReady = true
         window.dispatchEvent(new Event('spotify-sdk-ready'))
