@@ -3,13 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#8fdccf" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Kinder-Hoerspiele" />
     <title>🎧 Kinder-Hörspiele</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <link rel="apple-touch-icon" href="%BASE_URL%apple-touch-icon.png" />
+    <link rel="manifest" href="%BASE_URL%manifest.webmanifest" />
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
   </head>
   <body>
     <div id="root"></div>
     <script>
+      ;(() => {
+        if (window.location.search.startsWith('?/')) {
+          const decodedPath = window.location.search
+            .slice(1)
+            .split('&')
+            .map((part) => part.replace(/~and~/g, '&'))
+            .join('?')
+
+          window.history.replaceState(null, '', decodedPath + window.location.hash)
+        }
+      })()
+
       window.onSpotifyWebPlaybackSDKReady = () => {
         window.spotifySDKReady = true
         window.dispatchEvent(new Event('spotify-sdk-ready'))
